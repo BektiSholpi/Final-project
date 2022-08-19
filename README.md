@@ -49,3 +49,5 @@ npm run build
 ### Day 2
 > Terminar el funcion de SingIn y SingUp.
 > Empezar con Nav. Con el boton Log Out.
+
+....
