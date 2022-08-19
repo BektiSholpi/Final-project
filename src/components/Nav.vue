@@ -1,5 +1,10 @@
 <template>
-  <div>Nav Component</div>
+  <div>
+    Nav Component
+    <nav>
+      <button @click="logOut"></button>
+    </nav>
+  </div>
 </template>
 
 <script setup>

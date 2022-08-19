@@ -42,28 +42,10 @@ npm run build
 
 ### Good Music is always key!
 
-```sh
-Wu Tang Clan
-A tribe called quest
-Kendrick Lamar
-Outkast
-Dr. Dre
-N.W.A
-De La Soul 
-Ms. Lauryn Hill
-J. Cole 
-Guts
-Naughty By Nature
-People under the stairs
-Nujabes
-NAS
-KRS-One
-The Pharcyde
-Jurassic 5
-Gang starr
-Jay Z
-Mobb Depp
-Common
-Lil Supa
-```
-[Hip Hop Spotify Playlist](https://open.spotify.com/playlist/4vKftyhS1gQovakehVcq1u?si=a7a119382dfe40da)
+### Day 1
+> Creamos SingIn y SingUp.
+> Hemos añadido los imputs para introducir email, password y "submit".
+
+### Day 2
+> Terminar el funcion de SingIn y SingUp.
+> Empezar con Nav. Con el boton Log Out.
