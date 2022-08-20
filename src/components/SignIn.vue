@@ -1,33 +1,52 @@
 <template>
   <div class="containerIn">
     <div class="headingIn">
-      <h1>Log in to Task App</h1>
-      <h2>Start Organizing your tasks today!</h2>
+      <div class="header">
+        <a href="/auth/#" class="logo"
+          ><img
+            class="logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPrhsMiE_mVmwsurTkXjt8-XZEr-_ne1RXF6ySjHanEpB3LWC_FvCtC-VhCqpsHeQl1J8&usqp=CAU"
+            alt="logo"
+        /></a>
+        <h1 class="title">Log in to ToDo App</h1>
+        <h2 class="text">Start Organizing your tasks today!</h2>
+      </div>
+      <p v-show="errorMsg" class="error-msg">{{ errorMsg }}</p>
 
       <form @submit.prevent="signIn">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          v-model="email"
-          placeholder="email@gmail.com"
-          required
-        />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          v-model="password"
-          placeholder="*********"
-          required
-        />
-        <br />
-        <input type="submit" required />
+        <div class="form-input">
+          <label class="input-label" for="email">Email</label>
+          <input
+            type="text"
+            class="input-input"
+            v-model="email"
+            placeholder="  email@gmail.com"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <label class="input-label" for="password">Password</label>
+          <input
+            type="password"
+            class="input-input"
+            v-model="password"
+            placeholder="  *********"
+            required
+          />
+        </div>
+
+        <button class="btn">Sign In</button>
+        <p>
+          Don’t have an account?
+          <PersonalRouter :route="route" :buttonText="buttonText" />
+        </p>
       </form>
-      <div>Start Organizing your tasks todays!</div>
-      <div><PersonalRouter :route="route" :buttonText="buttonText" /></div>
     </div>
+
     <div class="img">
       <img
-        src="https://www.impressline.com.mx/public/uploads/productos/ESC-543t.jpg"
+        class="signin-img"
+        src="https://media.gettyimages.com/photos/shot-of-an-unrecognisable-businesswoman-using-a-laptop-while-working-picture-id1343152987?s=2048x2048"
         alt=""
       />
     </div>
@@ -81,8 +100,59 @@ const signIn = async () => {
 </script>
 
 <style>
-.wu-text {
-  color: black;
+.containerIn {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+}
+.headingIn {
+  margin: auto;
+  max-width: 747px;
+}
+.header {
+  text-align: center;
+}
+.logo {
+  width: 75px;
+  margin-bottom: 5px;
+}
+.title {
+  margin-top: 5px;
+}
+
+.signin-img {
+  object-fit: cover;
+  width: 750px;
+  height: 100%;
+}
+
+.error-msg {
+  color: red;
+}
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.input-input {
+  border-radius: 5px;
+  border: 1px solid #4caf50;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px 0;
+}
+.btn {
+  background-color: #4caf50;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .form {
@@ -90,10 +160,7 @@ const signIn = async () => {
   flex-direction: column;
   margin: 1rem 0;
 }
-.input {
-  color: black;
-  margin-bottom: 1rem;
-}
+
 .button {
   background-color: #4caf50; /* Green */
   border: none;
@@ -103,12 +170,5 @@ const signIn = async () => {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-}
-.containerIn {
-  display: flex;
-  flex-direction: row;
-}
-.headingIn {
-  margin-top: 100px;
 }
 </style>

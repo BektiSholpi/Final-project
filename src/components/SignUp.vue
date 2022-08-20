@@ -1,40 +1,65 @@
 <template>
   <div class="containerUp">
     <div class="headingUp">
-      <PersonalRouter :route="route" :buttonText="buttonText" />
+      <div class="header">
+        <a href="/auth/#" class="logo"
+          ><img
+            class="logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPrhsMiE_mVmwsurTkXjt8-XZEr-_ne1RXF6ySjHanEpB3LWC_FvCtC-VhCqpsHeQl1J8&usqp=CAU"
+            alt="logo"
+        /></a>
+        <h1 class="title">Log in to ToDo App</h1>
+        <h2 class="text">Start Organizing your tasks today!</h2>
+      </div>
+
       <form @submit.prevent="signUp">
-        <div class="inpEmail"></div>
-        <label for="email">Email</label>
+        <div class="form-input"></div>
+        <label class="input-label" for="email">Email</label>
         <input
           type="text"
+          class="input-input"
           v-model="email"
-          placeholder="Email"
+          placeholder="  Email"
           id="email"
           required
         />
         <br />
-        <label for="password">Password</label>
+        <label input-label for="password">Password</label>
         <input
           type="password"
+          class="input-input"
           v-model="password"
-          placeholder="******"
+          placeholder="  ********"
           id="password"
           required
         />
         <br />
-        <label for="password">Confirm password</label>
+        <label class="input-label" for="password">Confirm password</label>
         <input
           type="password"
+          class="input-input"
           v-model="confirmPassword"
-          placeholder="******"
+          placeholder="  ********"
           id="confirmPassword"
           required
         />
-        <br />
-        <input type="submit" required />
+
+        <button class="btn">Sign In</button>
+
+        <p>
+          Have an account?
+          <PersonalRouter :route="route" :buttonText="buttonText" />
+        </p>
       </form>
     </div>
-    <div>Log In</div>
+
+    <div class="img">
+      <img
+        class="signin-img"
+        src="https://media.gettyimages.com/photos/shot-of-an-unrecognisable-businesswoman-using-a-laptop-while-working-picture-id1343152987?s=2048x2048"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 <script setup>
@@ -46,7 +71,7 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Sign In Route";
+const buttonText = "Log In";
 // Input Fields
 const email = ref("");
 const password = ref("");
@@ -82,4 +107,71 @@ const signUp = async () => {
   errorMsg.value = "Password not the same";
 };
 </script>
-<style></style>
+<style>
+.containerUp {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+.headingUp {
+  margin: auto;
+  max-width: 747px;
+}
+.header {
+  text-align: center;
+}
+.logo {
+  width: 70px;
+}
+
+.signin-img {
+  object-fit: cover;
+  width: 50vw;
+  height: 100vh;
+}
+
+.error-msg {
+  color: red;
+}
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.input-input {
+  border-radius: 5px;
+  border: 1px solid #4caf50;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px 0;
+}
+.btn {
+  background-color: #4caf50;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
