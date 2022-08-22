@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <NewTask />
+    <NewTask @addToTask="" />
     <Footer />
   </div>
 </template>
@@ -10,9 +10,19 @@
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
+import { useTaskStore } from "../stores/task";
+
+const setTask = useTaskStore();
+function addSup(task) {
+  setTask.addTask(task.title, task.description);
+}
 </script>
 
-<style></style>
+<style>
+* {
+  font-family: "Poppins", sans-serif;
+}
+</style>
 
 <!-- 
 **Hints**

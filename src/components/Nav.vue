@@ -61,6 +61,9 @@ const signOut = async () => {
 .nav {
   display: flex;
 }
+h1 {
+  margin-top: 10;
+}
 .h_2 {
   margin-left: 30em;
   color: dimgray;
