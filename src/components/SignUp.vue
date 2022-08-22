@@ -11,6 +11,7 @@
         <h1 class="title">Log in to ToDo App</h1>
         <h2 class="text">Start Organizing your tasks today!</h2>
       </div>
+      <p v-show="errorMsg" class="error-msg">{{ errorMsg }}</p>
 
       <form @submit.prevent="signUp">
         <div class="form-input"></div>
