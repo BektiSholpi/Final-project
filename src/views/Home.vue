@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <NewTask @addToTask="" />
+    <NewTask @addToTask="addSup" />
     <Footer />
   </div>
 </template>
