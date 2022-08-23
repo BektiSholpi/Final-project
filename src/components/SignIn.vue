@@ -5,7 +5,7 @@
         <a href="/auth/#" class="logo"
           ><img
             class="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPrhsMiE_mVmwsurTkXjt8-XZEr-_ne1RXF6ySjHanEpB3LWC_FvCtC-VhCqpsHeQl1J8&usqp=CAU"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
             alt="logo"
         /></a>
         <h1 class="title">Log in to ToDo App</h1>

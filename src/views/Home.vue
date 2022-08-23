@@ -3,19 +3,32 @@
     <Nav />
     <NewTask @addToTask="addSup" />
     <Footer />
+    <TaskItem :taskData="setTask.tasks" />
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
+import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 
 const setTask = useTaskStore();
+setTask.fetchTasks();
 function addSup(task) {
   setTask.addTask(task.title, task.description);
+  setTask.fetchTasks();
 }
+
+/* const useTasks = ref([]);
+const fetchTasks = async () => {
+  useTasks.value = await setTask.fetchTasks();
+};
+const props = defineProps({ taskData: Object });
+ */
+/* fetchTasks(); */
 </script>
 
 <style>

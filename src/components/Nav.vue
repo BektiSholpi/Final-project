@@ -1,16 +1,18 @@
 <template>
-  <div>
+  <div class="section">
     <nav class="navbar">
       <div class="nav">
-        <img
+        <!--  <img
           class="nav-img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPrhsMiE_mVmwsurTkXjt8-XZEr-_ne1RXF6ySjHanEpB3LWC_FvCtC-VhCqpsHeQl1J8&usqp=CAU"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
           alt=""
-        />
+        /> -->
         <h1>ToDoApp</h1>
       </div>
-      <h2 class="h_2">Hello, {{ name[0] }}</h2>
-      <button class="nav-btn" @click="signOut">Log Out</button>
+      <div class="div">
+        <h2 class="h_2">Hello, {{ name[0] }}</h2>
+        <button class="nav-btn" @click="signOut">Log Out</button>
+      </div>
       <!-- <PersonalRouter :route="route" :buttonText="buttonText" /> -->
     </nav>
   </div>
@@ -56,7 +58,7 @@ const signOut = async () => {
   width: 100vw;
 }
 .nav-img {
-  width: 50px;
+  width: 60px;
 }
 .nav {
   display: flex;
@@ -65,8 +67,11 @@ h1 {
   margin-top: 10;
 }
 .h_2 {
-  margin-left: 30em;
+  margin-right: 10px;
   color: dimgray;
+}
+.div {
+  display: flex;
 }
 .nav-btn {
   background-color: #4caf50;

@@ -1,16 +1,97 @@
 <template>
-  <div>Task Item Component</div>
+  <div class="container">
+    <div class="task-item">
+      <div class="task-image">
+        <img class="icon-img" src="#" alt="icono" />
+      </div>
+      <div class="task-container">
+        <div v-for="(task, index) in taskData" :key="index">
+          <h2 class="task-title">{{ task.title }}</h2>
+          <p class="task-descr">{{ task.description }}</p>
+        </div>
+
+        <div class="task-btn">
+          <div class="task-change-descr"></div>
+
+          <div class="task-change-title"></div>
+
+          <div class="task-delete"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+import PersonalRouter from "./PersonalRouter.vue";
+import { supabase } from "../supabase";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
+
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
-
+const props = defineProps({ taskData: Array });
 // const props = defineProps(["ENTER-PROP-HERE"]);
 </script>
 
-<style></style>
+<style scoped>
+.task-item {
+  background-color: #4caf50;
+  margin-top: 40px;
+  height: 200px;
+  position: relative;
+  width: 34%;
+}
+
+.icon-img {
+  width: 50px;
+  position: absolute;
+  height: 50px;
+  border-radius: 50%;
+  left: 50%;
+  top: -15%;
+  transform: translate(-50%, 0);
+}
+.task-container {
+  padding: 30px;
+  text-align: center;
+}
+.task-change-descr {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+.task-change-title {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+.task-delete {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+.task-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task-title {
+  margin-bottom: 30px;
+}
+.task-descr {
+  margin-bottom: 40px;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
 
 <!-- 
 **Hints**

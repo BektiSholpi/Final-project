@@ -50,4 +50,11 @@ npm run build
 > Terminar el funcion de SingIn y SingUp.
 > Empezar con Nav. Con el boton Log Out.
 
+### Day 3
+> Avanzar con el NewTask
+> Empujar los tasks al supabase
+
+### Day 4
+> Avanzar con el TaskItem
+> 
 ....

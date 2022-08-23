@@ -37,6 +37,7 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 import { useTaskStore } from "../stores/task";
+
 // constant to save a variable that define the custom event that will be emitted to the homeView
 const emit = defineEmits(["addToTask"]);
 // constant to save a variable that holds the value of the title input field of the new task
