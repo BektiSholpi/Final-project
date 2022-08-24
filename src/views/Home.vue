@@ -3,7 +3,14 @@
     <Nav />
     <NewTask @addToTask="addSup" />
     <div>
-      <TaskItem :taskData="setTask.tasks" />
+      <TaskItem
+        v-for="task in setTask.tasks"
+        :key="task.id"
+        :taskData="task"
+        @delete-task-child="deleteTaskParent"
+        @toggle-reminder-child="toggleTaskParent"
+        @change-name-child="changeNameParent"
+      />
     </div>
 
     <Footer />
@@ -11,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
@@ -19,19 +26,38 @@ import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 
 const setTask = useTaskStore();
-setTask.fetchTasks();
-function addSup(task) {
-  setTask.addTask(task.title, task.description);
+
+onMounted(() => {
+  setTask.fetchTasks();
+});
+
+//funccion para "add" tareas en supabase TIENE QUE SER ASYNCRONICA
+const addSup = async (task) => {
+  await setTask.addTask(task.title, task.description);
+  setTask.fetchTasks();
+};
+
+//funccion para borrar tarea de supabase
+const deleteTaskParent = async (task) => {
+  await setTask.deleteTask(task.id);
+  setTask.fetchTasks();
+};
+//funccion para completar tarea
+const toggleTaskParent = async (task) => {
+  const taskStatus = !task.is_complete;
+  const taskId = task.id;
+  await setTask.toggleDone(taskStatus, taskId);
+  setTask.fetchTasks();
+};
+
+async function changeNameParent(task) {
+  const newTitle = task.newName;
+  const newDescription = task.newDescription;
+  const id = task.oldTask.id;
+
+  await setTask.editTask(newTitle, newDescription, id);
   setTask.fetchTasks();
 }
-
-/* const useTasks = ref([]);
-const fetchTasks = async () => {
-  useTasks.value = await setTask.fetchTasks();
-};
-const props = defineProps({ taskData: Object });
- */
-/* fetchTasks(); */
 </script>
 
 <style>

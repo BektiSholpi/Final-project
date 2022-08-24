@@ -74,7 +74,7 @@ h1 {
   display: flex;
 }
 .nav-btn {
-  background-color: #4caf50;
+  background-color: #36755f;
   border-radius: 5px;
   width: 100px;
   margin-right: 15px;

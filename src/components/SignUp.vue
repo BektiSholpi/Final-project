@@ -140,13 +140,13 @@ const signUp = async () => {
 }
 .input-input {
   border-radius: 5px;
-  border: 1px solid #4caf50;
+  border: 1px solid #36755f;
   margin-bottom: 20px;
   width: 100%;
   padding: 10px 0;
 }
 .btn {
-  background-color: #4caf50;
+  background-color: #36755f;
   border-radius: 5px;
   width: 100%;
   border: none;
@@ -165,7 +165,7 @@ const signUp = async () => {
 }
 
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: #36755f; /* Green */
   border: none;
   color: white;
   padding: 10px 10px;

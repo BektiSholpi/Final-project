@@ -1,25 +1,49 @@
 <template>
   <div class="container">
-    <div class="task-item">
-      <div class="task-image">
-        <img class="icon-img" src="#" alt="icono" />
+    <div class="task-container">
+      <div>
+        <h2 class="task-title">{{ taskData.title }}</h2>
+        <p class="task-descr">{{ taskData.description }}</p>
       </div>
-      <div class="task-container">
-        <div v-for="(task, index) in taskData" :key="index">
-          <h2 class="task-title">{{ task.title }}</h2>
-          <p class="task-descr">{{ task.description }}</p>
-        </div>
 
-        <div class="task-btn">
-          <div class="task-change-descr">
-            <button>editar</button>
+      <div class="todo-button">
+        <!--  <div
+          :class="
+            task.is_complete ? 'todo-change-state' : 'todo-change-state-not'
+          "
+          @click="toggleTask(task.id, index)"
+        ></div> -->
+        <button @click.prevent="deleteTask">delete task</button>
+        <button v-if="!taskData.is_complete" @click.prevent="toggleTask">
+          Complete Task
+        </button>
+        <button v-if="taskData.is_complete" @click.prevent="toggleTask">
+          Uncomplete Task
+        </button>
+        <button @click="handleForm">Edit</button>
+      </div>
+
+      <form v-if="editForm" @submit.prevent="editTask">
+        <div class="add-task-form">
+          <div class="input-field">
+            <input
+              class="inpud-field-input"
+              type="text"
+              placeholder="change name"
+              v-model="name"
+            />
+
+            <input
+              type="text"
+              placeholder="change description"
+              v-model="description"
+            />
           </div>
-
-          <div class="task-change-title"></div>
-
-          <div class="task-delete"></div>
+          <button type="submit">Change</button>
         </div>
-      </div>
+      </form>
+
+      <hr />
     </div>
   </div>
 </template>
@@ -32,16 +56,56 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
-const props = defineProps({ taskData: Array });
-// const props = defineProps(["ENTER-PROP-HERE"]);
+const emit = defineEmits([
+  "toggle-reminder-child",
+  "delete-task-child",
+  "change-name-child",
+]);
+
+const props = defineProps(["taskData"]);
+
+const name = ref("");
+const description = ref("");
+
+const deleteTask = () => {
+  emit("delete-task-child", props.taskData);
+};
+
+const toggleTask = () => {
+  emit("toggle-reminder-child", props.taskData);
+};
+
+const changeName = ref(false);
+const editForm = ref(false);
+
+const handleForm = () => {
+  editForm.value = !editForm.value;
+
+  console.log(editForm.value);
+};
+
+const changeNameValue = () => {
+  changeName.value = !changeName.value;
+};
+
+const editTask = () => {
+  const taskObjectToEdit = {
+    oldTask: props.taskData,
+    newName: name.value,
+    newDescription: description.value,
+  };
+  emit("change-name-child", taskObjectToEdit);
+
+  name.value = "";
+  description.value = "";
+};
 </script>
 
 <style scoped>
+button {
+  border: 1px solid black;
+}
 .task-item {
-  background-color: #4caf50;
   margin-top: 40px;
   height: 200px;
   position: relative;

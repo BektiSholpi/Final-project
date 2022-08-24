@@ -90,13 +90,13 @@ h2 {
 
 .task-input {
   border-radius: 5px;
-  border: 1px solid #4caf50;
+  border: 1px solid #36755f;
   margin-bottom: 20px;
   width: 100%;
   padding: 10px 0;
 }
 .task-btn {
-  background-color: #4caf50;
+  background-color: #36755f;
   border-radius: 5px;
   width: 100%;
   border: none;
