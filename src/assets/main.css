@@ -7,8 +7,10 @@
 
   font-weight: normal;
 } */
-
-a,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
@@ -32,4 +34,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */

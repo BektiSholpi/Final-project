@@ -11,7 +11,9 @@
         </div>
 
         <div class="task-btn">
-          <div class="task-change-descr"></div>
+          <div class="task-change-descr">
+            <button>editar</button>
+          </div>
 
           <div class="task-change-title"></div>
 

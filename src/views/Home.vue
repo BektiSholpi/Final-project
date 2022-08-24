@@ -2,8 +2,11 @@
   <div>
     <Nav />
     <NewTask @addToTask="addSup" />
+    <div>
+      <TaskItem :taskData="setTask.tasks" />
+    </div>
+
     <Footer />
-    <TaskItem :taskData="setTask.tasks" />
   </div>
 </template>
 

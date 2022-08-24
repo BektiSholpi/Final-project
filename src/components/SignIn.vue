@@ -8,7 +8,9 @@
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
             alt="logo"
         /></a>
-        <h1 class="title">Log in to ToDo App</h1>
+        <h1 class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl">
+          Log in to ToDo App
+        </h1>
         <h2 class="text">Start Organizing your tasks today!</h2>
       </div>
       <p v-show="errorMsg" class="error-msg">{{ errorMsg }}</p>

@@ -56,5 +56,8 @@ npm run build
 
 ### Day 4
 > Avanzar con el TaskItem
-> 
+> LLamar info desde supabase (fetchTasks)
 ....
+### Day 5
+> Funciones borrar, editar y hecho.
+> Acabar CSS, probar tailwind.
