@@ -2,11 +2,6 @@
   <div class="section">
     <nav class="navbar">
       <div class="nav">
-        <!--  <img
-          class="nav-img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
-          alt=""
-        /> -->
         <h1>ToDoApp</h1>
       </div>
       <div class="div">
@@ -52,23 +47,29 @@ const signOut = async () => {
 </script>
 
 <style scoped>
+.section {
+  background-color: white;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   width: 100vw;
 }
-.nav-img {
-  width: 60px;
-}
+
 .nav {
   display: flex;
 }
 h1 {
-  margin-top: 10;
+  margin-top: 15px;
+  font-size: 30px;
+  margin-left: 10px;
 }
 .h_2 {
+  margin-top: 25px;
+
   margin-right: 10px;
   color: dimgray;
+  font-size: 18px;
 }
 .div {
   display: flex;
@@ -77,7 +78,7 @@ h1 {
   background-color: #36755f;
   border-radius: 5px;
   width: 100px;
-  margin-right: 15px;
+  margin-right: 25px;
   margin-top: 15px;
   height: 40px;
   border: none;
@@ -86,5 +87,11 @@ h1 {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+@media only screen and (max-width: 747px) {
+  .h_2 {
+    display: none;
+  }
 }
 </style>

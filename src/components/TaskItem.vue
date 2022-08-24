@@ -1,49 +1,59 @@
 <template>
   <div class="container">
-    <div class="task-container">
-      <div>
-        <h2 class="task-title">{{ taskData.title }}</h2>
-        <p class="task-descr">{{ taskData.description }}</p>
+    <div class="item-todo">
+      <div class="item-image">
+        <i class="task fas fa-tasks fa-lg"></i>
       </div>
 
-      <div class="todo-button">
-        <!--  <div
-          :class="
-            task.is_complete ? 'todo-change-state' : 'todo-change-state-not'
-          "
-          @click="toggleTask(task.id, index)"
-        ></div> -->
-        <button @click.prevent="deleteTask">delete task</button>
-        <button v-if="!taskData.is_complete" @click.prevent="toggleTask">
-          Complete Task
-        </button>
-        <button v-if="taskData.is_complete" @click.prevent="toggleTask">
-          Uncomplete Task
-        </button>
-        <button @click="handleForm">Edit</button>
-      </div>
-
-      <form v-if="editForm" @submit.prevent="editTask">
-        <div class="add-task-form">
-          <div class="input-field">
-            <input
-              class="inpud-field-input"
-              type="text"
-              placeholder="change name"
-              v-model="name"
-            />
-
-            <input
-              type="text"
-              placeholder="change description"
-              v-model="description"
-            />
-          </div>
-          <button type="submit">Change</button>
+      <div class="item-container">
+        <div class="text-1xl font-bold tracking-normal sm:text-1xl lg:text-1xl">
+          <h2>
+            {{ taskData.title }}
+          </h2>
         </div>
-      </form>
 
-      <hr />
+        <div class="item-description">
+          <p>
+            {{ taskData.description }}
+          </p>
+        </div>
+
+        <div class="buttons">
+          <button v-if="!taskData.is_complete" @click.prevent="toggleTask">
+            Complete Task
+          </button>
+          <button v-if="taskData.is_complete" @click.prevent="toggleTask">
+            Uncomplete Task
+          </button>
+          <button class="edit-btn" @click="handleForm">Edit</button>
+
+          <button class="change fas fa-ban fa-lg" @click.prevent="deleteTask">
+            delete
+          </button>
+        </div>
+        <form class="change-name" v-if="editForm" @submit.prevent="editTask">
+          <div class="add-task-form">
+            <div class="input-field-inpud">
+              <input
+                type="text"
+                placeholder="  Change Title"
+                v-model="name"
+                class="input-one"
+              />
+              <input
+                type="text"
+                placeholder="  Change Description"
+                v-model="description"
+                class="input-two"
+              />
+            </div>
+
+            <div class="btn-change">
+              <button type="submit">Change</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -101,61 +111,85 @@ const editTask = () => {
 };
 </script>
 
-<style scoped>
-button {
-  border: 1px solid black;
-}
-.task-item {
-  margin-top: 40px;
-  height: 200px;
-  position: relative;
-  width: 34%;
-}
-
-.icon-img {
-  width: 50px;
-  position: absolute;
-  height: 50px;
-  border-radius: 50%;
-  left: 50%;
-  top: -15%;
-  transform: translate(-50%, 0);
-}
-.task-container {
-  padding: 30px;
-  text-align: center;
-}
-.task-change-descr {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-}
-.task-change-title {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-}
-.task-delete {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-}
-.task-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.task-title {
-  margin-bottom: 30px;
-}
-.task-descr {
-  margin-bottom: 40px;
-}
+<style>
 .container {
   max-width: 1100px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+}
+.item-todo {
+  margin-top: 40px;
+  height: 100%;
+  position: relative;
+  width: 27%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.item-container {
+  padding: 30px;
+  background-color: aliceblue;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #36755f;
+  border-radius: 10px;
+}
+.item-title {
+  margin-bottom: 30px;
+}
+.item-description {
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.input-field-inpud {
+  margin-bottom: 15px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+.input-one {
+  border-radius: 5px;
+  border: 1px solid #36755f;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 0;
+}
+.input-two {
+  border-radius: 5px;
+  border: 1px solid #36755f;
+  width: 100%;
+  padding: 10px 0;
+}
+.btn-change {
+  background-color: #36755f;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+@media only screen and (max-width: 747px) {
+  .container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .item-todo {
+    width: 50%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 </style>
 

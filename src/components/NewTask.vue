@@ -1,7 +1,9 @@
 <template>
   <div class="section">
     <div class="body">
-      <h1>Add a new Task</h1>
+      <h1 class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl">
+        Add a new Task
+      </h1>
       <h2>
         Organize your work and your life, finally. Focus, get organized, and
         stay calm with ToDoApp
@@ -83,6 +85,8 @@ h1 {
 h2 {
   display: block;
   font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 .error {
   color: red;

@@ -173,4 +173,10 @@ const signIn = async () => {
   display: inline-block;
   font-size: 16px;
 }
+
+@media only screen and (max-width: 747px) {
+  .signin-img {
+    display: none;
+  }
+}
 </style>
