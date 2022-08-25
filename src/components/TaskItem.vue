@@ -22,14 +22,14 @@
             @click.prevent="toggleTask"
             class="complete"
           >
-            Done
+            Pending
           </button>
           <button
             v-if="taskData.is_complete"
             @click.prevent="toggleTask"
             class="uncomplete"
           >
-            pending
+            Done
           </button>
           <button class="edit-btn" @click="handleForm">Edit</button>
 
@@ -159,18 +159,6 @@ const editTask = () => {
   font-size: 10px;
 }
 .complete {
-  background-color: #f28729;
-  border-radius: 5px;
-  width: 60px;
-  height: 30px;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-}
-.uncomplete {
   background-color: red;
   border-radius: 5px;
   width: 60px;
@@ -182,8 +170,20 @@ const editTask = () => {
   display: inline-block;
   font-size: 10px;
 }
-.edit-btn {
+.uncomplete {
   background-color: #f07167;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+.edit-btn {
+  background-color: #f28729;
   margin: 0 15px;
   border-radius: 5px;
   width: 60px;
