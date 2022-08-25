@@ -2,7 +2,9 @@
   <div class="section">
     <nav class="navbar">
       <div class="nav">
-        <h1>ToDoApp</h1>
+        <h1 class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl">
+          ToDoApp
+        </h1>
       </div>
       <div class="div">
         <h2 class="h_2">Hello, {{ name[0] }}</h2>

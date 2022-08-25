@@ -1,9 +1,7 @@
 <template>
-  <div class="container">
+  <div class="section">
     <div class="item-todo">
-      <div class="item-image">
-        <i class="task fas fa-tasks fa-lg"></i>
-      </div>
+      <div class="item-image"></div>
 
       <div class="item-container">
         <div class="text-1xl font-bold tracking-normal sm:text-1xl lg:text-1xl">
@@ -19,17 +17,23 @@
         </div>
 
         <div class="buttons">
-          <button v-if="!taskData.is_complete" @click.prevent="toggleTask">
-            Complete Task
+          <button
+            v-if="!taskData.is_complete"
+            @click.prevent="toggleTask"
+            class="complete"
+          >
+            Done
           </button>
-          <button v-if="taskData.is_complete" @click.prevent="toggleTask">
-            Uncomplete Task
+          <button
+            v-if="taskData.is_complete"
+            @click.prevent="toggleTask"
+            class="uncomplete"
+          >
+            pending
           </button>
           <button class="edit-btn" @click="handleForm">Edit</button>
 
-          <button class="change fas fa-ban fa-lg" @click.prevent="deleteTask">
-            delete
-          </button>
+          <button @click.prevent="deleteTask" class="delete-btn">Delete</button>
         </div>
         <form class="change-name" v-if="editForm" @submit.prevent="editTask">
           <div class="add-task-form">
@@ -112,26 +116,20 @@ const editTask = () => {
 </script>
 
 <style>
-.container {
-  max-width: 1100px;
+.section {
+  /* max-width: 1100px; */
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex: wrap;
 }
-.item-todo {
-  margin-top: 40px;
-  height: 100%;
-  position: relative;
-  width: 27%;
-  margin-left: 20px;
-  margin-right: 20px;
-}
+/* f */
 .item-container {
+  width: 80%;
   padding: 30px;
   background-color: aliceblue;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 40px;
   border: 1px solid #36755f;
   border-radius: 10px;
@@ -147,6 +145,56 @@ const editTask = () => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+}
+.delete-btn {
+  background-color: #36755f;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+.complete {
+  background-color: #f28729;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+.uncomplete {
+  background-color: red;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+.edit-btn {
+  background-color: #f07167;
+  margin: 0 15px;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
 }
 .input-field-inpud {
   margin-bottom: 15px;
@@ -186,9 +234,18 @@ const editTask = () => {
     margin-right: 30px;
   }
   .item-todo {
-    width: 50%;
+    width: 100%;
     margin-left: 0px;
     margin-right: 0px;
+  }
+  .task-input {
+    margin: 0 18px 0 15px;
+  }
+  .task-btn {
+    margin: 0 18px 0 15px;
+  }
+  .item-container {
+    margin-left: 50px;
   }
 }
 </style>

@@ -2,20 +2,15 @@
   <div class="containerIn">
     <div class="headingIn">
       <div class="header">
-        <a href="/auth/#" class="logo"
-          ><img
-            class="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
-            alt="logo"
-        /></a>
+        <i class="fa-solid fa-list-check"></i>
+
         <h1 class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl">
           Log in to ToDo App
         </h1>
         <h2 class="text">Start Organizing your tasks today!</h2>
       </div>
       <p v-show="errorMsg" class="error-msg">{{ errorMsg }}</p>
-
-      <form @submit.prevent="signIn">
+      <form @submit.prevent="signIn" class="w-56 md:w-96">
         <div class="form-input">
           <label class="input-label" for="email">Email</label>
           <input
@@ -107,18 +102,24 @@ const signIn = async () => {
   justify-content: space-between;
   width: 100vw;
   height: 100vh;
+  background-color: aliceblue;
 }
 .headingIn {
   margin: auto;
   max-width: 747px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .header {
   text-align: center;
 }
-.logo {
-  width: 75px;
-  margin-bottom: 5px;
+
+i {
+  font-size: 40px;
+  margin-bottom: 25px;
 }
+
 .title {
   margin-top: 5px;
 }
@@ -148,6 +149,7 @@ const signIn = async () => {
   background-color: #36755f;
   border-radius: 5px;
   width: 100%;
+  height: 50px;
   border: none;
   color: white;
   padding: 10px 10px;
@@ -161,6 +163,10 @@ const signIn = async () => {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+}
+.form-input {
+  align-items: center;
+  padding-left: -15px;
 }
 
 .button {

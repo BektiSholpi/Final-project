@@ -2,7 +2,7 @@
   <div>
     <Nav />
     <NewTask @addToTask="addSup" />
-    <div>
+    <div class="sholpi">
       <TaskItem
         v-for="task in setTask.tasks"
         :key="task.id"
@@ -63,6 +63,17 @@ async function changeNameParent(task) {
 <style>
 * {
   font-family: "Poppins", sans-serif;
+}
+.sholpi {
+  display: flex;
+  justify-content: space-around;
+  flex: wrap;
+}
+@media only screen and (max-width: 747px) {
+  .sholpi {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
 

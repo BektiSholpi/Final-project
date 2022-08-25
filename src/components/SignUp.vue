@@ -2,49 +2,48 @@
   <div class="containerUp">
     <div class="headingUp">
       <div class="header">
-        <a href="/auth/#" class="logo"
-          ><img
-            class="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzUe7jo1D940bjNuAz97lIMFhtASJRuiYCQ&usqp=CAU"
-        /></a>
-        <h1 class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl">
+        <i class="fa-solid fa-list-check"></i>
+        <h1
+          class="text-3xl font-bold tracking-normal sm:text-3xl lg:text-3xl text-center"
+        >
           Log in to ToDo App
         </h1>
         <h2 class="text">Start Organizing your tasks today!</h2>
       </div>
       <p v-show="errorMsg" class="error-msg">{{ errorMsg }}</p>
 
-      <form @submit.prevent="signUp">
-        <div class="form-input"></div>
-        <label class="input-label" for="email">Email</label>
-        <input
-          type="text"
-          class="input-input"
-          v-model="email"
-          placeholder="  Email"
-          id="email"
-          required
-        />
-        <br />
-        <label input-label for="password">Password</label>
-        <input
-          type="password"
-          class="input-input"
-          v-model="password"
-          placeholder="  ********"
-          id="password"
-          required
-        />
-        <br />
-        <label class="input-label" for="password">Confirm password</label>
-        <input
-          type="password"
-          class="input-input"
-          v-model="confirmPassword"
-          placeholder="  ********"
-          id="confirmPassword"
-          required
-        />
+      <form @submit.prevent="signUp" class="w-56 md:w-96">
+        <div class="form-input">
+          <label class="input-label" for="email">Email</label>
+          <input
+            type="text"
+            class="input-input"
+            v-model="email"
+            placeholder="  Email"
+            id="email"
+            required
+          />
+          <br />
+          <label input-label for="password">Password</label>
+          <input
+            type="password"
+            class="input-input"
+            v-model="password"
+            placeholder="  ********"
+            id="password"
+            required
+          />
+          <br />
+          <label class="input-label" for="password">Confirm password</label>
+          <input
+            type="password"
+            class="input-input"
+            v-model="confirmPassword"
+            placeholder="  ********"
+            id="confirmPassword"
+            required
+          />
+        </div>
 
         <button class="btn">Sign In</button>
 
@@ -102,11 +101,14 @@ const signUp = async () => {
       // hides error message
       setTimeout(() => {
         errorMsg.value = null;
-      }, 4000);
+      }, 5000);
     }
     return;
   }
   errorMsg.value = "Password not the same";
+  setTimeout(() => {
+    errorMsg.value = null;
+  }, 5000);
 };
 </script>
 <style>
@@ -114,6 +116,7 @@ const signUp = async () => {
   display: flex;
   justify-content: space-between;
   width: 100vw;
+  background-color: aliceblue;
 }
 .headingUp {
   margin: auto;
