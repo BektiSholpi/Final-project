@@ -113,6 +113,7 @@ const signUp = async () => {
   justify-content: space-between;
   width: 100vw;
   background-color: aliceblue;
+  height: 100vh;
 }
 .headingUp {
   margin: auto;
@@ -178,5 +179,10 @@ const signUp = async () => {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+@media only screen and (max-width: 747px) {
+  i {
+    margin-top: 30px;
+  }
 }
 </style>

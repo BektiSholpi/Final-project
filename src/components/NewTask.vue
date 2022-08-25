@@ -111,4 +111,13 @@ h2 {
   display: inline-block;
   font-size: 16px;
 }
+
+@media only screen and (max-width: 747px) {
+  .task-input {
+    width: 80vw;
+  }
+  .task-btn {
+    width: 80vw;
+  }
+}
 </style>

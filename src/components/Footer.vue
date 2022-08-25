@@ -31,4 +31,10 @@ h3 {
   display: block;
   font-size: 20px;
 }
+@media only screen and (max-width: 747px) {
+  .footer {
+    position: fix;
+    bottom: 0;
+  }
+}
 </style>

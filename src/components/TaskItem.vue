@@ -234,7 +234,7 @@ const editTask = () => {
   }
   .item-todo {
     width: 100%;
-    margin-left: 0px;
+    margin-left: 10px;
     margin-right: 0px;
   }
   .task-input {
@@ -245,6 +245,7 @@ const editTask = () => {
   }
   .item-container {
     margin-left: 50px;
+    width: 60%;
   }
 }
 </style>
