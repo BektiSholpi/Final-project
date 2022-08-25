@@ -58,37 +58,29 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
-// Route Variables
 const route = "/auth/sign-up";
 const buttonText = "Sign Up!";
 
-// Input Fields
 const email = ref("");
 const password = ref("");
 
-// Error Message
 const errorMsg = ref("");
 
-//Show hide password variables
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
 const hidePassword = ref(true);
 
-// Router to push user once SignedIn to the HomeView
 const redirect = useRouter();
 
-// Arrow function to Signin user to supaBase
 const signIn = async () => {
   try {
-    // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
-    // redirects user to the homeView
+
     redirect.push({ path: "/" });
   } catch (error) {
-    // displays error message
     errorMsg.value = `Error: ${error.message}`;
-    // hides error message
+
     setTimeout(() => {
       errorMsg.value = null;
     }, 5000);
@@ -170,7 +162,7 @@ i {
 }
 
 .button {
-  background-color: #36755f; /* Green */
+  background-color: #36755f;
   border: none;
   color: white;
   padding: 10px 10px;

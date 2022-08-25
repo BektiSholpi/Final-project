@@ -10,7 +10,6 @@
         <h2 class="h_2">Hello, {{ name[0] }}</h2>
         <button class="nav-btn" @click="signOut">Log Out</button>
       </div>
-      <!-- <PersonalRouter :route="route" :buttonText="buttonText" /> -->
     </nav>
   </div>
 </template>
@@ -22,15 +21,13 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
-//constant to save a variable that will hold the use router method
 
-// constant to save a variable that will get the user from store with a computed function imported from vue
 const userStore = useUserStore();
-// constant that calls user email from the useUSerStore
+
 const email = userStore.user.email;
-// constant that saves the user email and cleans out the @client from the user
+
 const name = email.split("@");
-// async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
+
 const redirect = useRouter();
 
 const signOut = async () => {
