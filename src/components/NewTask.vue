@@ -97,7 +97,7 @@ h2 {
   border: 1px solid #36755f;
   margin-bottom: 20px;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 8px 10px 8px;
 }
 .task-btn {
   background-color: #36755f;
