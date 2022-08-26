@@ -17,7 +17,7 @@
             type="text"
             class="input-input"
             v-model="email"
-            placeholder="  email@gmail.com"
+            placeholder="email@gmail.com"
             required
           />
         </div>
@@ -27,7 +27,7 @@
             type="password"
             class="input-input"
             v-model="password"
-            placeholder="  *********"
+            placeholder="*********"
             required
           />
         </div>

@@ -19,7 +19,7 @@
             type="text"
             class="input-input"
             v-model="email"
-            placeholder="  Email"
+            placeholder="email@gmail.com"
             id="email"
             required
           />
@@ -29,7 +29,7 @@
             type="password"
             class="input-input"
             v-model="password"
-            placeholder="  ********"
+            placeholder="********"
             id="password"
             required
           />
@@ -39,7 +39,7 @@
             type="password"
             class="input-input"
             v-model="confirmPassword"
-            placeholder="  ********"
+            placeholder="********"
             id="confirmPassword"
             required
           />
@@ -112,12 +112,15 @@ const signUp = async () => {
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  background-color: aliceblue;
   height: 100vh;
+  background-color: aliceblue;
 }
 .headingUp {
   margin: auto;
   max-width: 747px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .header {
   text-align: center;
@@ -149,7 +152,7 @@ const signUp = async () => {
   border: 1px solid #36755f;
   margin-bottom: 20px;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 8px 10px 8px;
 }
 .btn {
   background-color: #36755f;

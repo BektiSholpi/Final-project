@@ -123,7 +123,7 @@ const editTask = () => {
 }
 
 .item-container {
-  width: 80%;
+  width: 70%;
   padding: 30px;
   background-color: aliceblue;
   margin-left: 10px;
